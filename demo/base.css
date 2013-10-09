@@ -1,0 +1,67 @@
+html, body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #E4E4E4 url("images/bg.png");
+	color: #292929;
+	color: rgba(0, 0, 0, 0.82);
+	font: Cambria, Georgia, serif;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+ol, ul, li {
+	list-style: none;
+}
+
+a {
+	color: #890101;
+	text-decoration: none;
+	transition: 0.2s color linear;
+}
+
+a:hover {
+	color: #DF3030;
+}
+
+#page {
+	background: url("images/rag.png") repeat-x;
+	padding: 2rem 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 {
+	background: url("images/logo-bg.png") no-repeat 50% 0;
+}
+
+h1 a {
+	padding-top: 117px;
+	height: 162px;
+	display: block;
+	text-align: center;
+}
+
+.main h2 {
+	background: url("images/ornament.png") no-repeat;
+	font-size: 1.4rem;
+	text-transform: capitalize;
+	text-align: center;
+	margin: 0.75rem 0 1rem;
+}
+
+.main h2 b {
+	background: url("images/bg.png");
+	padding: 0 1rem;
+}
+
+.amp {
+	font-family: Baskerville,Garamond,Palatino,"Palatino Linotype","Hoefler Text","Times New Roman",serif;
+	font-style: italic;
+}
+
+
+

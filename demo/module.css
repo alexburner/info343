@@ -1,0 +1,45 @@
+.figure {
+	float: left;
+	text-transform: uppercase;
+	margin: 0 3% 1.5rem 0;
+	text-align: center;
+}
+
+.figure img {
+	display: block;
+	margin: 0 auto 1rem;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.figure b {
+	display: block;
+	font-size: 1.2rem;
+	font-family: "Book Antiqua";
+	letter-spacing: 0.1rem;
+}
+
+ul.nav a {
+	background: url("images/ornament.png") no-repeat 0 100%;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	margin-bottom: -1rem;
+	padding: 1em 0.5em 3em;
+}
+
+ul.nav a:hover {
+	background-position: 50% 100%;
+}
+
+ul.nav {
+	border-top: 1px solid #888583;
+	margin: 2rem auto 0;
+	width: 67%;
+}
+
+ul.nav i {
+	font: normal 1rem Baskerville;
+	display: block;
+	letter-spacing: 0.05rem;
+}

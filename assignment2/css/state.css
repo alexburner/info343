@@ -1,0 +1,20 @@
+#main-header a:hover,
+#main-header a:active {
+	background: #222;
+	color: #FFF;
+}
+
+#main-navigation a:hover,
+#main-navigation a:active {
+	background: #222;
+	color: #FFF;
+}
+
+#main-navigation .active a {
+	background: #EEE;
+	font-weight: bold;
+}
+#main-navigation .active a:hover,
+#main-navigation .active a:active {
+	color: #222;
+}

@@ -1,0 +1,20 @@
+.inner {
+	margin: 0 auto;
+	width: 95%;
+}
+
+.mast {
+	float: left;
+	width: 33%;
+}
+
+.intro,
+.main,
+.footer {
+	float: right;
+	width: 67%;
+}
+
+.intro {
+	margin-top: 117px;
+}

@@ -1,0 +1,58 @@
+@media(min-width: 1300px) {
+	.mast {
+		float: none;
+		width: auto;
+	}
+	ul.nav {
+		width: 67%;
+		float: right;
+		text-align: center;
+	}
+	ul.nav li {
+		float: left;
+		margin-right: 3%;
+	}
+	h1 {
+		width: 33%;
+		float: left;
+	}
+	.figure {
+		margin-right: 3%;
+		width: 13%;
+	}
+}
+
+
+@media(max-width: 600px) {
+	.mast,
+	.intro,
+	.main,
+	.footer {
+		float: none;
+		width: auto;
+	}
+	h1 {
+		background: none;
+	}
+	.figure {
+		width: 27%;
+	}
+	.footer {
+		clear: both;
+	}
+	ul.nav li {
+		float: left;
+		margin-right: 3%;
+		width: 29%;
+	}
+}
+
+@media(max-width: 400px) {
+	.figure {
+		width: 45%;
+	}
+	ul.nav li {
+		float: none;
+		
+	}
+}

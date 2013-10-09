@@ -1,0 +1,25 @@
+#wrapper {
+	padding: 18px 24px 64px;
+}
+
+#main-header {
+	margin: 0;
+}
+
+#main-navigation {
+	margin: 12px 0 16px;
+}
+
+.block-list {
+	list-style: none;
+}
+.block-list li {
+	display: inline-block;
+}
+
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
