@@ -1,0 +1,20 @@
+div {
+	padding: 20px;
+}
+
+@background: #00F;
+@mixer: #FF0;
+@iterations: 24;
+
+.loopingClass(@index) when (@index > 0) {
+	
+	@counter: (@index * (360 / @iterations));
+
+	.a@{index} {
+		background-color: lighten(desaturate(spin(@background, @counter), 16), 24);
+	}
+
+	.loopingClass(@index - 1);
+}
+.loopingClass(0) {}
+.loopingClass(@iterations);

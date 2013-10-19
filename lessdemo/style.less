@@ -1,0 +1,37 @@
+@margin: 0.5%;
+@columns: 9;
+@margin-space: (@margin * 2);
+@square-space: (90% - @margin-space);
+@square-side: (@square-space / @columns);
+
+div {
+	width: @square-side;
+	height: @square-side;
+	margin: @margin;
+	float: left;
+}
+
+
+@iterations: 909;
+.loopingClass(@index) when (@index > 0) {
+	.unit@{index} a:after {
+		content: " @{index}"
+	}
+	.unit@{index} {
+		background-image: url(~"@{index}.jpeg");
+	}
+	.loopingClass (@index - 1);
+}
+.loopingClass(0) {}
+.loopingClass(@iterations);
+
+a {
+	color: white;
+	background-color: #401D5F;
+	opacity: 0.75;
+	text-decoration: none;
+}
+a:hover {
+	opacity: 1;
+	text-decoration: underline;
+}

@@ -1,0 +1,64 @@
+
+body {
+	font-family: sans-serif;
+}
+
+
+.row {
+	margin: 4% 10% 6%;
+
+	background: skyblue;
+
+	/* clearfix */
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+
+.col(@colCount: 1) {
+	@margins: 1%;
+	@marginSpace: ((@margins * 2) - ((@margins * 2) / @colCount));
+	@width: ((100% / @colCount) - @marginSpace); margin: 0 @margins;
+	width: @width;
+	float: left;
+
+	background: steelblue;
+
+	&.first {
+		margin-left: 0;
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+
+	@media (max-width: 700px) {
+		width: auto;
+		margin: auto;
+		float: none;
+	}
+}
+
+
+.col3 {
+	/* the 100% into 3 */
+	.col(3);
+}
+
+.col4 {
+	/* the 100% into 4 */
+	.col(4);
+}
+
+.colx2 {
+	/* the 100% into 4 and you're taking 2 */
+	.col( (4 / 2) );
+}
+
+.colx3 {
+	/* the 100% into 4 and you're taking 3 */
+	.col( (4 / 3) );
+}
