@@ -1,0 +1,94 @@
+@typographyColor: #222;
+@backgroundColor: #FFF;
+
+.bordered {
+	border: 1px solid @typographyColor;
+}
+
+#main-header > h1 {
+	margin: 0;
+	text-align: center;
+}
+#main-header > h1 > a {
+	display: block;
+	padding: 12px;
+	.bordered;
+	color: @typographyColor;
+	text-decoration: none;
+}
+
+#main-navigation > ul {
+	padding: 0;
+	position: relative;
+	top: -13px;
+	border-bottom: 1px solid @typographyColor;
+	text-align: center;
+}
+#main-navigation > ul > li {
+	margin: 0 3px;
+	position: relative;
+	top: 13px;
+	font-style: italic;
+}
+#main-navigation > ul > li > a {
+	display: block;
+	padding: 3px 9px;
+	.bordered;
+	background: @backgroundColor;
+	color: @typographyColor;
+	text-decoration: none;
+}
+
+#gallery {
+	text-align: center;
+}
+#gallery > ul > li {
+	margin: 2px;
+}
+
+#reference table {
+	width: 100%;
+}
+#reference tr > * {
+	padding: 6px;
+}
+#reference td {
+	border-top: 1px solid (@typographyColor * 6);
+}
+#reference th:first-child,
+#reference td:first-child {
+	text-align: left;
+}
+#reference th:last-child,
+#reference td:last-child  {
+	text-align: right;
+}
+
+#about img {
+	margin: 24px;
+}
+
+#contact .field {
+	margin: 4px 8px 12px;
+}
+#contact .field > * {
+	display: block;
+	width: 100%;
+}
+
+#copyright {
+	text-align: center;
+}
+
+@startColor: #00F;
+@hours: 24;
+.hourLoop(@hour) when (@hour > 0) {
+	@spin: (@hour * (360 / @hours));
+	.hour@{hour} {
+		background-color: lighten(desaturate(spin(@startColor, @spin), 16), 24);
+		padding: 2%;
+	}
+	.hourLoop(@hour - 1);
+}
+.hourLoop(0) {}
+.hourLoop(@hours);

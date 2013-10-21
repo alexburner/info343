@@ -1,0 +1,23 @@
+@typographyColor: #222;
+@backgroundColor: #FFF;
+
+#main-header a:hover,
+#main-header a:active {
+	background: @typographyColor;
+	color: @backgroundColor;
+}
+
+#main-navigation a:hover,
+#main-navigation a:active {
+	background: @typographyColor;
+	color: @backgroundColor;
+}
+
+#main-navigation .active a {
+	background: (@backgroundColor / 1.1);
+	font-weight: bold;
+}
+#main-navigation .active a:hover,
+#main-navigation .active a:active {
+	color: @typographyColor;
+}
