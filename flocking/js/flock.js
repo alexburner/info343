@@ -17,8 +17,20 @@
 	
 
 
-	function getHypotenuse(a, b) {
-		return Math.sqrt(a * a + b * b);
+	function getHypotenuse(x, y) {
+		return Math.sqrt(x * x + y * y);
+	}
+
+	function getNormalizedVectorSum(dx1, dy1, dx2, dy2) {
+		dv1 = getHypotenuse(dx1, dy1);
+		dxSum = dx1 + dx2;
+		dySum = dy1 + dy2;
+		dvSum = getHypotenuse(dxSum, dySum);
+		var normalize = dv1 / dvSum;
+		return {
+			x: dxSum * normalize,
+			y: dySum * normalize
+		};
 	}
 
 
@@ -102,20 +114,29 @@
 	Node.prototype.movePosition = function() {
 		this.x += this.dx;
 		this.y += this.dy;
-		// infinite edges
+		this.infiniteEdges();
+	};
+
+	Node.prototype.infiniteEdges = function() {
+		// y teleport
 		if (this.y < 0 - this.radius.neighborhood) {
 			// top edge
 			this.y = win.height + this.radius.neighborhood;
+			this.x = win.width - this.x;
 		} else if (this.y > win.height + this.radius.neighborhood) {
 			// bottom edge
 			this.y = 0 - this.radius.neighborhood;
+			this.x = win.width - this.x;
 		}
+		// x teleport
 		if (this.x < 0 - this.radius.neighborhood) {
 			// left edge
 			this.x = win.width + this.radius.neighborhood;
+			this.y = win.height - this.y;
 		} else if (this.x > win.width + this.radius.neighborhood) {
 			// right edge
 			this.x = 0 - this.radius.neighborhood;
+			this.y = win.height - this.y;
 		}
 	};
 
@@ -124,11 +145,10 @@
 		this.el.style.top = this.y + 'px';
 	};
 
-	/* deprecated
-	Node.prototype.averageNeighborVectors = function () {
-		var neighborCount = 0;
-		var dxsum = 0;
-		var dysum = 0;
+	Node.prototype.handleNeighbors = function () {
+		var neighCount = 0;
+		var neighSumX = 0;
+		var neighSumY = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
 			if (i === this.index) {continue;}
 			var that = nodes[i];
@@ -136,50 +156,51 @@
 			var yDiff = this.y - that.y;
 			var distance = getHypotenuse(xDiff, yDiff);
 			if (distance < this.radius.neighborhood) {
-				neighborCount++;
-				dxsum += that.dx;
-				dysum += that.dy;
+				if (distance < this.radius.bubble) {
+					// avoid neighbor
+					var adx = this.x - that.x;
+					var ady = this.y - that.y;
+					var nvs = getNormalizedVectorSum(
+						this.dx,
+						this.dy,
+						adx / ((this.radius.bubble / distance) * 10),
+						ady / ((this.radius.bubble / distance) * 10)
+					);
+					this.dx = nvs.x;
+					this.dy = nvs.y;
+				} else {
+					// follow neighbor heading
+					var nvs = getNormalizedVectorSum(
+						this.dx,
+						this.dy,
+						that.dx / ((this.radius.neighborhood / distance) * 10),
+						that.dy / ((this.radius.neighborhood / distance) * 10)
+					);
+					this.dx = nvs.x;
+					this.dy = nvs.y;
+					// for avg neigh cent
+					neighCount++;
+					neighSumX += that.x;
+					neighSumY += that.y;
+				}
 			}
 		}
-		this.dx = dxsum / neighborCount;
-		this.dy = dysum / neighborCount;
-	};*/
-
-	Node.prototype.findNeighborVectors = function () {
-		for (var i = 0, l = nodes.length; i < l; i++) {
-			if (i === this.index) {continue;}
-			var that = nodes[i];
-			var xDiff = this.x - that.x;
-			var yDiff = this.y - that.y;
-			var distance = getHypotenuse(xDiff, yDiff);
-			if (distance < this.radius.neighborhood) {
-				this.normalizeNeighborSpeed(that, distance);
-			}
+		// follow average neighbor center
+		if (neighCount) {
+			var centerX = neighSumX / neighCount;
+			var centerY = neighSumY / neighCount;
+			var cdx = centerX - this.x;
+			var cdy = centerX - this.y;
+			var nvs = getNormalizedVectorSum(
+				this.dx,
+				this.dy,
+				cdx / 100,
+				cdy / 100
+			);
+			this.dx = nvs.x;
+			this.dy = nvs.y;
 		}
 	};
-
-	/* deprecated
-	Node.prototype.absorbNeighborSpeed = function (neighbor, distance) {
-		if (distance < this.radius.body) {
-			this.dx *= -1;
-			this.dy *= -1;
-		} else {
-			var weight = distance / this.radius.neighborhood;
-			weight = Math.pow(weight, 1000);
-			this.dx += (neighbor.dx * weight);
-			this.dy += (neighbor.dy * weight);
-		}
-	}*/
-
-	Node.prototype.normalizeNeighborSpeed = function (neighbor, distance) {
-		var thisV = getHypotenuse(this.dx, this.dy);
-		var sumDX = this.dx + neighbor.dx * (distance / this.radius.neighborhood);
-		var sumDY = this.dy + neighbor.dy * (distance / this.radius.neighborhood);
-		var sumV = getHypotenuse(sumDX, sumDY);
-		var normalize = thisV / sumV;
-		this.dx = sumDX * normalize;
-		this.dy = sumDY * normalize;
-	}
 
 	Node.prototype.randomizeDelta = function () {
 		if (Math.random() < 0.5) {
@@ -197,14 +218,14 @@
 	Node.prototype.animate = function() {
 		this.movePosition();
 		this.stylePosition();
-		this.findNeighborVectors();
+		this.handleNeighbors();
 		this.randomizeDelta();
 	};
 
 
 
 	var count = 0;
-	while(count < 80) {
+	while(count < 100) {
 		var node = new Node();
 		frameHandler.addAnimation(node.animate, node);
 		count++;
