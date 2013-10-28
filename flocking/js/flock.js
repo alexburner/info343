@@ -135,7 +135,7 @@
 		} else if (cursor.is === cursor.THREAT) {
 			cursor.set(cursor.NEUTRAL);
 		} else if (cursor.is === cursor.NEUTRAL) {
-			cursor.set(cursor.THREAT);
+			cursor.set(cursor.FOOD);
 		}
 	});
 
