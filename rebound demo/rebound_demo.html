@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Rebound</title>
+    <style>
+        #playingArea{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+            background-color: rgb(192,192,192);
+        }
+        #paddle{
+            position: absolute;
+            top: 470px;
+            left: 228px;
+            width: 64px;
+            height: 16px;
+        }
+        #ball{
+            position: absolute;
+            top: 4px;
+            left: 200px;
+            width: 16px;
+            height: 16px;
+        }
+        #score{
+            position: absolute;
+            top: 486px;
+            left: 0px;
+            width: 500px;
+            height: 14px;
+            font-size: 10pt;
+            color: white;
+            background-color: rgb(32,128,64);
+        }
+
+        #boost {
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            top: -1000px;
+            left: -1000px;
+            background: yellow;
+        }
+    </style>
+    <script language="JavaScript">
+	   
+        var bonus;
+        var ball;
+        var paddle;
+        var score;
+        var timer;
+        var currentScore = 0;
+        var paddleLeft = 228;
+        var ballLeft = 200;
+        var ballTop = 4;
+        var bonusLeft = 0;
+        var bonusTop = 0;
+        var dx = 6;
+        var dy = 6;
+
+
+
+        function init() {
+            bonus = document.getElementById('bonus');
+            ball = document.getElementById('ball');
+            paddle = document.getElementById('paddle');
+            score = document.getElementById('score');
+
+
+            var randomBallX = Math.round(Math.random() * 436);
+            ball.style.left = randomBallX + 'px';
+            ballLeft = randomBallX;
+
+            document.onkeydown = keyListener;
+
+            start();
+        }
+
+        function keyListener (e) {
+            if (!e) {
+                e = window.event;
+            }
+            if (e.keyCode === 37 && paddleLeft > 0) {
+                // left arrow key
+                paddleLeft -= 16;
+                paddle.style.left = paddleLeft + 'px';
+            } else if (e.keyCode === 39 && paddleLeft < 436) {
+                // right arrow key
+                paddleLeft += 16;
+                paddle.style.left = paddleLeft + 'px';
+            }
+        }
+
+        function start () {
+            detectCollision();
+            render();
+            difficulty();
+
+            if (ballTop < 470) {
+                timer = setTimeout(start, 50);
+            } else {
+                gameOver();
+            }
+        }
+
+        function detectCollision() {
+            if (collisionX()) {
+                dx *= -1;
+            }
+            if (collisionY()) {
+                dy *= -1;
+            }
+        }
+
+        function collisionX() {
+            if (ballLeft < 4 || ballLeft > 480) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function collisionY() {
+            if (ballTop < 4) {
+                return true;
+            } else if (ballTop > 450) {
+                // did we hit paddle?
+                if (ballLeft > paddleLeft && ballLeft < paddleLeft + 64) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function render() {
+            moveBall();
+            updateScore();
+            //bonusCheck();
+        }
+
+        function bonusCheck() {
+            var rand = Math.round(Math.random() * 10);
+            if (rand === 5) {
+                addBonus();
+            }
+        }
+
+        function addBonus() {
+            bonusLeft = Math.round(Math.random() * 500);
+            bonusTop = 0;
+            bonus.style.left = startX +'px';
+            bonus.style.top = startY +'px';
+            while (bonusTop < 496) {
+
+            }
+        }
+
+        function moveBall() {
+            ballLeft += dx;
+            ballTop += dy;
+            ball.style.left = ballLeft +'px';
+            ball.style.top = ballTop +'px';
+        }
+
+        function gameOver() {
+            clearTimeout(timer);
+            score.innerHTML += 'Game Over';
+            score.style.backgroundColor = 'red';
+        }
+
+        function updateScore() {
+            currentScore += 5;
+            score.innerHTML = "Score: " + currentScore + " points";
+        }
+
+        function difficulty() {
+            if (currentScore % 1000 === 0) {
+                dy *= 1.25;
+                dx *= 1.25;
+            }
+        }
+
+    </script>
+  
+</head>
+  <body onLoad="init()">
+  <h1>Rebound</h1>
+  <div id="playingArea">
+    <div id="paddle">
+        <img src="paddle.gif">
+    </div>
+    <div id="ball">
+        <img src="ball.gif">
+    </div>
+    <div id="score">
+        Score: 0
+    </div>
+    <div id="boost"></div>
+  </div>
+</body>
+</html>
