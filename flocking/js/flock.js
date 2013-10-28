@@ -115,8 +115,8 @@
 	cursor.el = document.createElement('div');
 	container.el.appendChild(cursor.el, null);
 
-	// start as food
-	cursor.set(cursor.FOOD);
+	// start as neutral
+	cursor.set(cursor.NEUTRAL);
 
 	// move with mouse
 	addEvent(window, 'mousemove', function (e) {
@@ -344,8 +344,8 @@
 	Node.prototype.limitDelta = function (dnum) {
 		if (dnum > this.dmax) {
 			dnum = this.dmax;
-		} else if (dnum < -this.dmax) {
-			dnum = -1 *this.dmax;
+		} else if (dnum < -1 * this.dmax) {
+			dnum = -1 * this.dmax;
 		}
 		return dnum;
 	};
