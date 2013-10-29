@@ -94,8 +94,8 @@
 	cursor.THREAT = 2;
 	cursor.FOOD = 3;
 	cursor.is = null;
-	cursor.set = function (status) {
-		switch (status) {
+	cursor.set = function (state) {
+		switch (state) {
 			case cursor.NEUTRAL:
 				cursor.is = cursor.NEUTRAL;
 				cursor.el.setAttribute('class', 'neutral');
@@ -127,7 +127,7 @@
 		cursor.el.style.top = cursor.y + 'px';
 	});
 
-	// toggle threat/food
+	// cycle through neutral/food/threat
 	addEvent(window, 'mouseup', function (e) {
 		e = e || window.event;
 		if (cursor.is === cursor.FOOD) {
@@ -149,13 +149,13 @@
 	// the things
 
 
-	var nodes = [];
+	var birds = [];
 
 
-	function Node() {
+	function Bird() {
 		// reference
-		this.index = nodes.length;
-		nodes.push(this);
+		this.index = birds.length;
+		birds.push(this);
 		// size
 		this.radius = {};
 		this.radius.body = 5;
@@ -171,63 +171,64 @@
 		if (coinFlip()) {this.dx *= -1;}
 		if (coinFlip()) {this.dy *= -1;}
 		// elements
-		var node = document.createElement('div');
+		var bird = document.createElement('div');
 		var body = document.createElement('div');
 		var bbbl = document.createElement('div');
 		var nbhd = document.createElement('div');
-		node.setAttribute('class', 'node');
+		bird.setAttribute('class', 'bird');
 		body.setAttribute('class', 'body');
 		bbbl.setAttribute('class', 'bubble');
 		nbhd.setAttribute('class', 'neighborhood');
-		node.appendChild(body);
-		node.appendChild(bbbl);
-		node.appendChild(nbhd);
-		this.el = node;
+		bird.appendChild(body);
+		bird.appendChild(bbbl);
+		bird.appendChild(nbhd);
+		this.el = bird;
 		this.stylePosition();
 		container.el.appendChild(this.el, null);
 	}
 
-	Node.prototype.movePosition = function() {
+	Bird.prototype.movePosition = function() {
 		this.x += this.dx;
 		this.y += this.dy;
 		this.infiniteEdges();
 	};
 
-	Node.prototype.infiniteEdges = function() {
+	Bird.prototype.infiniteEdges = function() {
+		var compensate = this.radius.bubble;
 		// y teleport
-		if (this.y < 0 - this.radius.neighborhood) {
+		if (this.y < 0 - compensate) {
 			// top edge
-			this.y = container.height + this.radius.neighborhood;
+			this.y = container.height + compensate;
 			this.x = container.width - this.x;
-		} else if (this.y > container.height + this.radius.neighborhood) {
+		} else if (this.y > container.height + compensate) {
 			// bottom edge
-			this.y = 0 - this.radius.neighborhood;
+			this.y = 0 - compensate;
 			this.x = container.width - this.x;
 		}
 		// x teleport
-		if (this.x < 0 - this.radius.neighborhood) {
+		if (this.x < 0 - compensate) {
 			// left edge
-			this.x = container.width + this.radius.neighborhood;
+			this.x = container.width + compensate;
 			this.y = container.height - this.y;
-		} else if (this.x > container.width + this.radius.neighborhood) {
+		} else if (this.x > container.width + compensate) {
 			// right edge
-			this.x = 0 - this.radius.neighborhood;
+			this.x = 0 - compensate;
 			this.y = container.height - this.y;
 		}
 	};
 
-	Node.prototype.stylePosition = function() {
+	Bird.prototype.stylePosition = function() {
 		this.el.style.left = this.x + 'px';
 		this.el.style.top = this.y + 'px';
 	};
 
-	Node.prototype.handleNeighbors = function () {
+	Bird.prototype.handleNeighbors = function () {
 		var neighCount = 0;
 		var neighSumX = 0;
 		var neighSumY = 0;
-		for (var i = 0, l = nodes.length; i < l; i++) {
+		for (var i = 0, l = birds.length; i < l; i++) {
 			if (i === this.index) {continue;}
-			var that = nodes[i];
+			var that = birds[i];
 			var xDiff = this.x - that.x;
 			var yDiff = this.y - that.y;
 			var distance = getHypotenuse(xDiff, yDiff);
@@ -237,8 +238,8 @@
 					var nvs = getNormalizedVectorSum(
 						this.dx,
 						this.dy,
-						xDiff / ((this.radius.bubble / distance) * 10),
-						yDiff / ((this.radius.bubble / distance) * 10)
+						xDiff / ((this.radius.bubble / distance) * 30),
+						yDiff / ((this.radius.bubble / distance) * 30)
 					);
 					this.dx = nvs.x;
 					this.dy = nvs.y;
@@ -247,8 +248,8 @@
 					var nvs = getNormalizedVectorSum(
 						this.dx,
 						this.dy,
-						that.dx / ((this.radius.neighborhood / distance) * 10),
-						that.dy / ((this.radius.neighborhood / distance) * 10)
+						that.dx / ((this.radius.neighborhood / distance) * 60),
+						that.dy / ((this.radius.neighborhood / distance) * 60)
 					);
 					this.dx = nvs.x;
 					this.dy = nvs.y;
@@ -276,7 +277,7 @@
 		}
 	};
 
-	Node.prototype.handleCursor = function () {
+	Bird.prototype.handleCursor = function () {
 		switch (cursor.is) {
 			case cursor.THREAT:
 				this.avoidCursor();
@@ -287,7 +288,7 @@
 		}
 	};
 
-	Node.prototype.avoidCursor = function () {
+	Bird.prototype.avoidCursor = function () {
 		var xDiff = this.x - cursor.x;
 		var yDiff = this.y - cursor.y;
 		var distance = getHypotenuse(xDiff, yDiff);
@@ -303,7 +304,7 @@
 		}
 	};
 
-	Node.prototype.seekCursor = function () {
+	Bird.prototype.seekCursor = function () {
 		var xDiff = this.x - cursor.x;
 		var yDiff = this.y - cursor.y;
 		
@@ -324,7 +325,7 @@
 		}
 	};
 
-	Node.prototype.randomizeDelta = function () {
+	Bird.prototype.randomizeDelta = function () {
 		// x delta
 		if (coinFlip()) {
 			var rdx = Math.random();
@@ -341,7 +342,7 @@
 		}
 	};
 
-	Node.prototype.limitDelta = function (dnum) {
+	Bird.prototype.limitDelta = function (dnum) {
 		if (dnum > this.dmax) {
 			dnum = this.dmax;
 		} else if (dnum < -1 * this.dmax) {
@@ -350,7 +351,7 @@
 		return dnum;
 	};
 
-	Node.prototype.animate = function() {
+	Bird.prototype.animate = function() {
 		this.movePosition();
 		this.stylePosition();
 		this.handleNeighbors();
@@ -370,9 +371,9 @@
 	// create & animate
 
 	var count = 0;
-	while(count < 64) {
-		var node = new Node();
-		frameHandler.addAnimation(node.animate, node);
+	while(count < 100) {
+		var bird = new Bird();
+		frameHandler.addAnimation(bird.animate, bird);
 		count++;
 	}
 
