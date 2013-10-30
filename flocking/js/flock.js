@@ -325,9 +325,9 @@ Bird.prototype.infiniteEdges = function() {
  * @return undefined
  */
 Bird.prototype.handleNeighbors = function () {
-	var neighCount = 0;
-	var neighSumX = 0;
-	var neighSumY = 0;
+	var neighborCount = 0;
+	var neighborSumX = 0;
+	var neighborSumY = 0;
 	for (var i = 0, l = birds.length; i < l; i++) {
 		if (i === this.index) {continue;}
 		var that = birds[i];
@@ -356,22 +356,22 @@ Bird.prototype.handleNeighbors = function () {
 				this.dx = nvs.dx;
 				this.dy = nvs.dy;
 			}
-			neighCount++;
-			neighSumX += that.x;
-			neighSumY += that.y;
+			neighborCount++;
+			neighborSumX += that.x;
+			neighborSumY += that.y;
 		}
 	}
 	// "Cohesion: steer to move toward the average position of local flockmates"
-	if (neighCount) {
-		var centerX = neighSumX / neighCount;
-		var centerY = neighSumY / neighCount;
-		var cdx = centerX - this.x;
-		var cdy = centerX - this.y;
+	if (neighborCount) {
+		var centeroidX = neighborSumX / neighborCount;
+		var centeroidY = neighborSumY / neighborCount;
+		var centroidDX = centeroidX - this.x;
+		var centroidDY = centeroidX - this.y;
 		var nvs = getNormalizedVectorSum(
 			this.dx,
 			this.dy,
-			cdx / 100,
-			cdy / 100
+			centroidDX / 100,
+			centroidDY / 100
 		);
 		this.dx = nvs.dx;
 		this.dy = nvs.dy;
@@ -404,16 +404,17 @@ Bird.prototype.handleCursor = function () {
  * @return undefined
  */
 Bird.prototype.avoidCoords = function (x, y) {
+	var range = this.radius.neighborhood;
 	var C = 10; // magic coefficient
 	var xDiff = this.x - x;
 	var yDiff = this.y - y;
 	var distance = getHypotenuse(xDiff, yDiff);
-	if (distance < this.radius.neighborhood) {
+	if (distance < range) {
 		var nvs = getNormalizedVectorSum(
 			this.dx,
 			this.dy,
-			xDiff / ((this.radius.neighborhood / distance) * C),
-			yDiff / ((this.radius.neighborhood / distance) * C)
+			xDiff / ((range / distance) * C),
+			yDiff / ((range / distance) * C)
 		);
 		this.dx = nvs.dx;
 		this.dy = nvs.dy;
@@ -425,16 +426,17 @@ Bird.prototype.avoidCoords = function (x, y) {
  * @return undefined
  */
 Bird.prototype.seekCoords = function (x, y) {
+	var range = this.radius.neighborhood;
 	var C = 10; // magic coefficient
 	var xDiff = x - this.x;
 	var yDiff = y - this.y;
 	var distance = getHypotenuse(xDiff, yDiff);
-	if (distance < this.radius.neighborhood) {
+	if (distance < range) {
 		var nvs = getNormalizedVectorSum(
 			this.dx,
 			this.dy,
-			xDiff / ((this.radius.neighborhood / distance) * C),
-			yDiff / ((this.radius.neighborhood / distance) * C)
+			xDiff / ((range / distance) * C),
+			yDiff / ((range / distance) * C)
 		);
 		this.dx = nvs.dx;
 		this.dy = nvs.dy;
