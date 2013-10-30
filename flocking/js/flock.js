@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 /*
 
 precendents
@@ -24,16 +28,37 @@ http://faculty.hampshire.edu/lspector/pubs/spector-gecco2003.pdf
 
 
 
-// maths
 
+//
+// maths
+// 
+
+
+
+/**
+ * 50%ish chance bool flag
+ * @return {Boolean} Heads/tails
+ */
 function coinFlip() {
 	return Math.random() > 0.5;
 }
 
+/**
+ * Pythagorean theorem a & b into c
+ * @param  {[type]} x A
+ * @param  {[type]} y B
+ * @return {[type]}   C
+ */
 function getHypotenuse(x, y) {
 	return Math.sqrt(x * x + y * y);
 }
 
+/**
+ * Contstain a number to +/- boundary
+ * @param  {Number} number To constrain
+ * @param  {Number} limit  +/- boundary
+ * @return {Number}        Constrained number
+ */
 function limitNumber(number, limit) {
 	if (number > limit) {
 		number = limit;
@@ -43,15 +68,23 @@ function limitNumber(number, limit) {
 	return number;
 }
 
-function getNormalizedVectorSum(dx1, dy1, dx2, dy2) {
-	var dv1 = getHypotenuse(dx1, dy1);
-	var dxSum = dx1 + dx2;
-	var dySum = dy1 + dy2;
-	var dvSum = getHypotenuse(dxSum, dySum);
-	var normalize = dv1 / dvSum;
+/**
+ * Sum two vectors & normalize the result to null velocity change
+ * @param  {Number} takerDX Absorber dx
+ * @param  {Number} takerDY Absorber dy
+ * @param  {Number} giverDX Absorbed dx
+ * @param  {Number} giverDY Absorbed dy
+ * @return {Object}         Resulting dx and dy
+ */
+function getNormalizedVectorSum(takerDX, takerDY, giverDX, giverDY) {
+	var takerVectorLength = getHypotenuse(takerDX, takerDY);
+	var summedDX = takerDX + giverDX;
+	var summedDY = takerDY + giverDY;
+	var summedVectorLength = getHypotenuse(summedDX, summedDY);
+	var normalize = takerVectorLength / summedVectorLength;
 	return {
-		x: dxSum * normalize,
-		y: dySum * normalize
+		dx: summedDX * normalize,
+		dy: summedDY * normalize
 	};
 }
 
@@ -60,7 +93,17 @@ function getNormalizedVectorSum(dx1, dy1, dx2, dy2) {
 
 
 
+
+
+//
 // container
+//
+
+
+/**
+ * Project parent element
+ * @type {Object}
+ */
 var container = {};
 container.width = window.innerWidth;
 container.height = window.innerHeight;
@@ -75,7 +118,18 @@ addEvent(window, 'resize', function (e) {
 
 
 
+
+
+//
 // keyboard
+//
+
+
+/**
+ * Keyboard event handler
+ * @param  {Object} e DOM Event
+ * @return undefined
+ */
 addEvent(window, 'keydown', function (e) {
 	e = e || window.event;
 	switch (e.keyCode) {
@@ -91,61 +145,69 @@ addEvent(window, 'keydown', function (e) {
 
 
 
+
+
+
+//
 // cursor
+//
 
-var cursor = {};
-cursor.x = -1000;
-cursor.y = -1000;
 
-// cursor state
-cursor.NEUTRAL = 1;
-cursor.THREAT = 2;
-cursor.FOOD = 3;
-cursor.is = null;
-cursor.set = function (state) {
-	switch (state) {
-		case cursor.NEUTRAL:
-			cursor.is = cursor.NEUTRAL;
-			cursor.el.setAttribute('class', 'neutral');
-			break;
-		case cursor.THREAT:
-			cursor.is = cursor.THREAT;
-			cursor.el.setAttribute('class', 'threat');
-			break;
-		case cursor.FOOD:
-			cursor.is = cursor.FOOD;
-			cursor.el.setAttribute('class', 'food');
-			break;
+/**
+ * Floaty ball next to mouse pointer
+ * @type {Object}
+ */
+var cursor = {
+	el: document.createElement('div'),
+	x: -1000,
+	y: -1000,
+	is: undefined,
+	NEUTRAL: 1,
+	THREAT: 2,
+	FOOD: 3,
+	setState: function (state) {
+		switch (state) {
+			case cursor.NEUTRAL:
+				cursor.is = cursor.NEUTRAL;
+				cursor.el.setAttribute('class', 'neutral');
+				break;
+			case cursor.THREAT:
+				cursor.is = cursor.THREAT;
+				cursor.el.setAttribute('class', 'threat');
+				break;
+			case cursor.FOOD:
+				cursor.is = cursor.FOOD;
+				cursor.el.setAttribute('class', 'food');
+				break;
+		}
+	},
+	mousemove: function (e) {
+		e = e || window.event;
+		cursor.x = e.pageX;
+		cursor.y = e.pageY;
+		cursor.el.style.left = cursor.x + 'px';
+		cursor.el.style.top = cursor.y + 'px';
+	},
+	mouseup: function (e) {
+		if (cursor.is === cursor.FOOD) {
+			cursor.setState(cursor.THREAT);
+		} else if (cursor.is === cursor.THREAT) {
+			cursor.setState(cursor.NEUTRAL);
+		} else if (cursor.is === cursor.NEUTRAL) {
+			cursor.setState(cursor.FOOD);
+		}
 	}
-}
+};
 
-// cursor element
-cursor.el = document.createElement('div');
-container.el.appendChild(cursor.el, null);
+// set cursor state
+cursor.setState(cursor.NEUTRAL);
 
-// start cursor as neutral
-cursor.set(cursor.NEUTRAL);
+// insert cursor into document
+container.el.appendChild(cursor.el);
 
-// move cursor with mouse
-addEvent(window, 'mousemove', function (e) {
-	e = e || window.event;
-	cursor.x = e.pageX;
-	cursor.y = e.pageY;
-	cursor.el.style.left = cursor.x + 'px';
-	cursor.el.style.top = cursor.y + 'px';
-});
-
-// cycle cursor through neutral/food/threat
-addEvent(window, 'mouseup', function (e) {
-	e = e || window.event;
-	if (cursor.is === cursor.FOOD) {
-		cursor.set(cursor.THREAT);
-	} else if (cursor.is === cursor.THREAT) {
-		cursor.set(cursor.NEUTRAL);
-	} else if (cursor.is === cursor.NEUTRAL) {
-		cursor.set(cursor.FOOD);
-	}
-});
+// add cursor event handlers
+addEvent(window, 'mousemove', cursor.mousemove);
+addEvent(window, 'mouseup', cursor.mouseup);
 
 
 
@@ -154,12 +216,30 @@ addEvent(window, 'mouseup', function (e) {
 
 
 
+
+
+
+
+
+
+//
 // the birds
+//
 
 
+
+/**
+ * Global set of birds 
+ * NOTE: birds need this for index-based self identity
+ * @type {Array}
+ */
 var birds = [];
 
 
+/**
+ * Bird constructor
+ * @return undefined
+ */
 function Bird() {
 	// reference
 	this.index = birds.length;
@@ -191,16 +271,33 @@ function Bird() {
 	bird.appendChild(bbbl);
 	bird.appendChild(nbhd);
 	this.el = bird;
-	this.stylePosition();
+	this.draw();
 	container.el.appendChild(this.el);
 }
 
+/**
+ * Draw bird element
+ * @return undefined
+ */
+Bird.prototype.draw = function() {
+	this.el.style.left = this.x + 'px';
+	this.el.style.top = this.y + 'px';
+};
+
+/**
+ * Update bird position with delta
+ * @return undefined
+ */
 Bird.prototype.movePosition = function() {
 	this.x += this.dx;
 	this.y += this.dy;
 	this.infiniteEdges();
 };
 
+/**
+ * Compensate position for infinite edges
+ * @return undefined
+ */
 Bird.prototype.infiniteEdges = function() {
 	var compensate = this.radius.bubble;
 	if (this.y < 0 - compensate) {
@@ -223,11 +320,10 @@ Bird.prototype.infiniteEdges = function() {
 	}
 };
 
-Bird.prototype.stylePosition = function() {
-	this.el.style.left = this.x + 'px';
-	this.el.style.top = this.y + 'px';
-};
-
+/**
+ * Bird react to neighbors
+ * @return undefined
+ */
 Bird.prototype.handleNeighbors = function () {
 	var neighCount = 0;
 	var neighSumX = 0;
@@ -247,8 +343,8 @@ Bird.prototype.handleNeighbors = function () {
 					xDiff / ((this.radius.bubble / distance) * 30),
 					yDiff / ((this.radius.bubble / distance) * 30)
 				);
-				this.dx = nvs.x;
-				this.dy = nvs.y;
+				this.dx = nvs.dx;
+				this.dy = nvs.dy;
 			} else {
 				// "Alignment: steer towards the average heading of local flockmates"
 				var nvs = getNormalizedVectorSum(
@@ -257,8 +353,8 @@ Bird.prototype.handleNeighbors = function () {
 					that.dx / ((this.radius.neighborhood / distance) * 60),
 					that.dy / ((this.radius.neighborhood / distance) * 60)
 				);
-				this.dx = nvs.x;
-				this.dy = nvs.y;
+				this.dx = nvs.dx;
+				this.dy = nvs.dy;
 			}
 			neighCount++;
 			neighSumX += that.x;
@@ -277,60 +373,79 @@ Bird.prototype.handleNeighbors = function () {
 			cdx / 100,
 			cdy / 100
 		);
-		this.dx = nvs.x;
-		this.dy = nvs.y;
+		this.dx = nvs.dx;
+		this.dy = nvs.dy;
 	}
 };
 
+/**
+ * Bird react to cursor
+ * @return undefined
+ */
 Bird.prototype.handleCursor = function () {
 	switch (cursor.is) {
 		case cursor.THREAT:
-			this.avoidCursor();
+			this.avoidCoords(
+				cursor.x,
+				cursor.y
+			);
 			break;
 		case cursor.FOOD:
-			this.seekCursor();
+			this.seekCoords(
+				cursor.x,
+				cursor.y
+			);
 			break;
 	}
 };
 
-Bird.prototype.avoidCursor = function () {
-	var xDiff = this.x - cursor.x;
-	var yDiff = this.y - cursor.y;
+/**
+ * Change bird vector away from location
+ * @return undefined
+ */
+Bird.prototype.avoidCoords = function (x, y) {
+	var C = 10; // magic coefficient
+	var xDiff = this.x - x;
+	var yDiff = this.y - y;
 	var distance = getHypotenuse(xDiff, yDiff);
 	if (distance < this.radius.neighborhood) {
 		var nvs = getNormalizedVectorSum(
 			this.dx,
 			this.dy,
-			xDiff / ((this.radius.neighborhood / distance) * 10),
-			yDiff / ((this.radius.neighborhood / distance) * 10)
+			xDiff / ((this.radius.neighborhood / distance) * C),
+			yDiff / ((this.radius.neighborhood / distance) * C)
 		);
-		this.dx = nvs.x;
-		this.dy = nvs.y;
+		this.dx = nvs.dx;
+		this.dy = nvs.dy;
 	}
 };
 
-Bird.prototype.seekCursor = function () {
-	var xDiff = this.x - cursor.x;
-	var yDiff = this.y - cursor.y;
-	
-	// avoid -> seek
-	xDiff *= -1;
-	yDiff *= -1;
-	
+/**
+ * Change bird vector towards location
+ * @return undefined
+ */
+Bird.prototype.seekCoords = function (x, y) {
+	var C = 10; // magic coefficient
+	var xDiff = x - this.x;
+	var yDiff = y - this.y;
 	var distance = getHypotenuse(xDiff, yDiff);
 	if (distance < this.radius.neighborhood) {
 		var nvs = getNormalizedVectorSum(
 			this.dx,
 			this.dy,
-			xDiff / ((this.radius.neighborhood / distance) * 10),
-			yDiff / ((this.radius.neighborhood / distance) * 10)
+			xDiff / ((this.radius.neighborhood / distance) * C),
+			yDiff / ((this.radius.neighborhood / distance) * C)
 		);
-		this.dx = nvs.x;
-		this.dy = nvs.y;
+		this.dx = nvs.dx;
+		this.dy = nvs.dy;
 	}
 };
 
-Bird.prototype.randomizeDelta = function () {
+/**
+ * Shake up bird velocity
+ * @return undefined
+ */
+Bird.prototype.randomizeMovement = function () {
 	// dx
 	if (coinFlip()) {
 		var rdx = Math.random();
@@ -345,18 +460,29 @@ Bird.prototype.randomizeDelta = function () {
 	}
 };
 
+/**
+ * Limit bird velocity
+ * @return undefined
+ */
 Bird.prototype.speedLimit = function () {
 	this.dx = limitNumber(this.dx, this.dmax);
 	this.dy = limitNumber(this.dy, this.dmax);
 };
 
-Bird.prototype.animate = function() {
-	this.movePosition();
-	this.stylePosition();
+/**
+ * Animate one frame of the bird
+ * @return undefined
+ */
+Bird.prototype.animateFrame = function() {
+	// dx, dy stuff
 	this.handleNeighbors();
 	this.handleCursor();
-	this.randomizeDelta();
+	this.randomizeMovement();
 	this.speedLimit();
+	// x, y stuff
+	this.movePosition();
+	// draw element
+	this.draw();
 };
 
 
@@ -368,30 +494,30 @@ Bird.prototype.animate = function() {
 
 
 
-// create & animate
 
-var count = 0;
-while(count < 100) {
-	var bird = new Bird();
-	frameHandler.addAnimation(bird.animate, bird);
-	count++;
+
+
+
+//
+// page start
+//
+
+
+
+/**
+ * Get everything happening
+ * @return undefined
+ */
+function execute() {
+	// make birds
+	var count = 0;
+	while(count < 100) {
+		var bird = new Bird();
+		frameHandler.addAnimation(bird.animateFrame, bird);
+		count++;
+	}
+	// run animations
+	frameHandler.start();
 }
 
-frameHandler.start();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+execute();

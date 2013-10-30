@@ -29,9 +29,7 @@
 
 .row {
 	margin: 4% auto;
-
-	background: skyblue;
-
+	/*background: skyblue;*/
 	/* clearfix */
 	&:before,
 	&:after {
@@ -43,14 +41,15 @@
 
 
 .col(@colCount: 1) {
-	@margins: 1%;
-	@marginSpace: ((@margins * 2) - ((@margins * 2) / @colCount));
-	@width: ((100% / @colCount) - @marginSpace); margin: 0 @margins;
+	@marginSide: 1%;
+	@marginSides: @marginSide * 2;
+	@roomForMargins: (@marginSides - (@marginSides / @colCount));
+	@width: ((100% / @colCount) - @roomForMargins); 
+	margin-left: @marginSide;
+	margin-right: @marginSide;
 	width: @width;
 	float: left;
-
-	background: steelblue;
-
+	/*background: steelblue;*/
 	&.first {
 		margin-left: 0;
 	}
@@ -78,10 +77,10 @@
 
 .colx2 {
 	/* divide 100% into 4 and you're taking 2 */
-	.col( (4 / 2) );
+	.col((4 / 2));
 }
 
 .colx3 {
 	/* divide 100% into 4 and you're taking 3 */
-	.col( (4 / 3) );
+	.col((4 / 3));
 }
