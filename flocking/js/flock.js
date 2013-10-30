@@ -45,9 +45,9 @@ function coinFlip() {
 
 /**
  * Pythagorean theorem a & b into c
- * @param  {[type]} x A
- * @param  {[type]} y B
- * @return {[type]}   C
+ * @param  {Number} x A
+ * @param  {Number} y B
+ * @return {Number}   C
  */
 function getHypotenuse(x, y) {
 	return Math.sqrt(x * x + y * y);
