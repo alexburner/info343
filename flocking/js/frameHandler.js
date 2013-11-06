@@ -32,9 +32,9 @@
 
 
 
-
-
-
+//
+// animation frames
+//
 
 
 var frameHandler = (function () {
@@ -61,6 +61,9 @@ var frameHandler = (function () {
 	return {
 		start: function () {
 			handleFrame(new Date().getTime());
+		},
+		pause: function () {
+			isPaused = true;
 		},
 		togglePause: function () {
 			isPaused = !isPaused;

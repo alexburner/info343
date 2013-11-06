@@ -305,13 +305,15 @@ function Bird() {
 	this.el = bird;
 	this.draw();
 	container.el.appendChild(this.el);
-	/*
-	var r = coinFlip() ? 0 : 255;
-	var g = coinFlip() ? 0 : 255;
-	var b = coinFlip() ? 0 : 255;
+
+	// var r = coinFlip() ? 0 : 255;
+	// var g = coinFlip() ? 0 : 255;
+	// var b = coinFlip() ? 0 : 255;
+	var r = 0;
+	var g = 0;
+	var b = 0;
 	var a = 1;
 	this.trailColor = "rgba("+r+","+g+","+b+","+a+")";
-	*/
 }
 
 /**
@@ -321,10 +323,8 @@ function Bird() {
 Bird.prototype.draw = function() {
 	this.el.style.left = this.x + 'px';
 	this.el.style.top = this.y + 'px';
-	/*
 	canvas.ctx.fillStyle = this.trailColor;
 	canvas.ctx.fillRect(this.x, this.y, 1, 1);
-	*/
 };
 
 /**

@@ -285,7 +285,7 @@ function Bird() {
 	this.x = Math.random() * container.width;
 	this.y = Math.random() * container.height;
 	// delta
-	this.dmax = 10;
+	this.dmax = 2;
 	this.dx = Math.random() * 5;
 	this.dy = Math.random() * 5;
 	if (coinFlip()) {this.dx *= -1;}
@@ -305,13 +305,15 @@ function Bird() {
 	this.el = bird;
 	this.draw();
 	container.el.appendChild(this.el);
-	/*
-	var r = coinFlip() ? 0 : 255;
-	var g = coinFlip() ? 0 : 255;
-	var b = coinFlip() ? 0 : 255;
+
+	// var r = coinFlip() ? 0 : 255;
+	// var g = coinFlip() ? 0 : 255;
+	// var b = coinFlip() ? 0 : 255;
+	var r = 0;
+	var g = 0;
+	var b = 0;
 	var a = 1;
 	this.trailColor = "rgba("+r+","+g+","+b+","+a+")";
-	*/
 }
 
 /**
@@ -321,10 +323,8 @@ function Bird() {
 Bird.prototype.draw = function() {
 	this.el.style.left = this.x + 'px';
 	this.el.style.top = this.y + 'px';
-	/*
 	canvas.ctx.fillStyle = this.trailColor;
 	canvas.ctx.fillRect(this.x, this.y, 1, 1);
-	*/
 };
 
 /**
@@ -342,7 +342,7 @@ Bird.prototype.movePosition = function() {
  * @return undefined
  */
 Bird.prototype.infiniteEdges = function() {
-	var compensate = this.radius.bubble;
+	var compensate = 0;
 	if (this.y < 0 - compensate) {
 		// top edge
 		this.y = container.height + compensate;
@@ -520,7 +520,7 @@ Bird.prototype.speedLimit = function () {
  */
 Bird.prototype.animateFrame = function() {
 	// dx, dy stuff
-	this.handleNeighbors();
+	//this.handleNeighbors();
 	this.handleCursor();
 	this.randomizeMovement();
 	this.speedLimit();
