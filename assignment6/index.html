@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>A6 - $ things</title>
+	<link rel="stylesheet" type="text/css" href="css/excite-bike/jquery-ui-1.10.3.custom.css">
+	<link rel="stylesheet" type="text/css" href="css/liteAccordion.css">
+	<style type="text/css">
+		
+		body {
+			padding: 2% 4% 8%;
+		}
+
+		.section {
+			margin-bottom: 2%;
+			padding: 0 2% 3%;
+			border: 1px solid #000;
+		}
+		
+		#sortable {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;	
+		}
+		#sortable li {
+			height: 18px;
+			margin: 3px;
+			padding: 0.4em;
+			padding-left: 1.6em;
+		}
+		#sortable li span {
+			position: absolute;
+			margin-left: -1.3em;
+		}
+
+		.anim {
+			margin: 4px 0;
+			padding: 4px 6px;
+			border: 1px solid #555;
+		}
+
+		#progressbar {
+			position: relative;
+		}
+		#progressbar span {
+			position: absolute;
+			top: 8px;
+			left: 16px;
+		}
+
+	</style>
+</head>
+<body>
+
+<h1>Assignment 6 - jQuery things</h1>
+
+<div class="section">
+	<h2>Drag &amp; Drop List</h2>
+	<ul id="sortable">
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+	</ul>
+</div>
+
+<div class="section">
+	<h2>Horizontal Accordion</h2>
+	<div id="accordion">
+		<ol>
+			<li>
+				<h2><span>Slide One</span></h2>
+				<div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+			</li>
+			<li>
+				<h2><span>Slide Two</span></h2>
+				<div>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</div>
+			</li>
+			<li>
+				<h2><span>Slide Three</span></h2>
+				<div>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
+			</li>
+			<li>
+				<h2><span>Slide Four</span></h2>
+				<div>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</div>
+			</li>
+			<li>
+				<h2><span>Slide Five</span></h2>
+				<div>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+			</li>
+		</ol>
+		<noscript>
+			<p>Please enable JavaScript to get the full experience.</p>
+		</noscript>
+	</div>
+</div>
+
+<div class="section">
+	<h2>Two Event-based Animations</h2>
+	<div class="anim" id="anim1">Hover over me for funtimes</div>
+	<div class="anim" id="anim2">Double click me for funtimes</div>
+</div>
+
+<div class="section">
+	<h2>Progress Bar</h2>
+	<div id="progressbar">
+		<span>Click to fill</span>
+	</div>
+</div>
+
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script src="js/liteaccordion.jquery.js"></script>
+<script>
+
+	// jQuery UI drag & drop list
+	var $sortable = $('#sortable');
+	$sortable.sortable({cursor: "move"});
+	$sortable.disableSelection();
+
+	// liteAccordion horizontal accordion
+	$('#accordion').liteAccordion({
+		theme : 'light',
+		easing: 'easeOutBounce',
+		activateOn: 'mouseover',
+		containerWidth: 600
+	});
+
+	// event-based animations
+	var $anim1 = $('#anim1');
+	var $anim2 = $('#anim2');
+	$anim1.on('mouseenter', function () {
+		var r = Math.round(Math.random() * 255);
+		var g = Math.round(Math.random() * 255);
+		var b = Math.round(Math.random() * 255);
+		var randomColor = 'rgb(' + r + ',' + g + ',' + b +')';
+		$anim1.animate({'background-color': randomColor});
+	});
+	$anim2.on('dblclick', function () {
+		var fontSize = Math.round(Math.random() * 100) + 'px';
+		$anim2.animate({'font-size': fontSize});
+	});
+
+	// jQuery UI progressbar
+	var $progressbar = $("#progressbar");
+	var $progresstext = $progressbar.children('span');
+	$progressbar.progressbar();
+	$progressbar.on('click', function () {
+		var value = $progressbar.progressbar('value') + 1;
+		$progressbar.progressbar('value', value);
+		$progresstext.text('Clicks = ' + value + ', only ' + (100 - value) + ' to go!');
+		if (value === 100) {
+			$progresstext.text('You are full of clicks');
+			$progressbar.off();
+		}
+	});
+
+
+</script>
+</body>
+</html>

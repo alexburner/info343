@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<title>studysesh - Session (hosting)</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/btn-twbs-2.3.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="find_unauthed.html">studysesh</a>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="main-nav-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="find.html">Find</a></li>
+			<li><a href="create.html">Create</a></li>
+			<li><a href="mysessions.html">My sessions</a></li>
+		</ul>
+		<!-- <button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button> -->
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Jane Doe <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="account.html">Account settings</a></li>
+					<li><a href="#">Sign Out</a></li>
+				</ul>
+			</li>
+		</ul>
+		<p class="navbar-text navbar-right">
+			<small>
+				<span class="label">
+					UNIVERSITY OF WASHINGTON
+				</span>
+			</small>
+			&nbsp;
+			&nbsp;
+		</p>
+	</div><!-- /.navbar-collapse -->
+</nav>
+<div class="container-custom">
+	<div class="page-header">
+		<div class="pull-right">
+			<strong>You are hosting this session &nbsp;</strong>
+			<a class="btn btn-sm btn-default" href="edit.html">
+				Edit
+			</a>
+			<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#confirmDeleteModal">
+				Delete
+			</button>
+		</div>
+		<h1>Study session</h1>
+	</div>
+	<div id="session-detail">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="name">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Name</h3>
+						</div>
+						<div class="panel-body">
+							<h3>Developmental Psychology</h3>
+						</div>
+					</div>
+				</div>
+				<div class="details">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Details</h3>
+						</div>
+						<div class="panel-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+				</div>
+				<div class="comments">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Comments</h3>
+						</div>
+						<div class="panel-body">
+							<div class="comment">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<p>Should I come to this sesh? I'm only in Psych 101 but I'd still like to study with more experienced people. Would anyone be willing to show me the ropes?</p>
+									</div>
+									<div class="panel-footer">
+										<div class="media">
+											<a class="pull-left" href="#">
+												<img class="media-object" src="img/thumb4.jpg" alt="">
+											</a>
+											<div class="media-body">
+												Ethan Blake
+												<small class="text-muted">
+													&nbsp;(Maybe)
+												</small>
+												<div class="pull-right">
+													<small class="text-muted">
+														11/9/2013 @ 5:43PM
+													</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="comment">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<p>I'm bringing soda and chips! I've only got the bottle though, if anyone could bring like cups and napkins that would be a big awesome...</p>
+									</div>
+									<div class="panel-footer">
+										<div class="media">
+											<a class="pull-left" href="#">
+												<img class="media-object" src="img/thumb5.jpg" alt="">
+											</a>
+											<div class="media-body">
+												Tom Lincoln
+												<small class="text-muted">
+													&nbsp;(Attending)
+												</small>
+												<div class="pull-right">
+													<small class="text-muted">11/9/2013 @ 12:37PM</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="comment">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<p>I've updated the room reservation, it was going to be in Green Alcove but now it will be in Red Room B. This also means we'll get some extra time to hang out if we need it.</p>
+									</div>
+									<div class="panel-footer">
+										<div class="media">
+											<a class="pull-left" href="#">
+												<img class="media-object" src="img/thumb1.jpg" alt="">
+											</a>
+											<div class="media-body">
+												Elaine Albertson
+												<small class="text-muted">
+													&nbsp;(Hosting)
+												</small>
+												<div class="pull-right">
+													<small class="text-muted">11/8/2013 @ 9:12AM</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="form-group">
+								<div class="form-group">
+									<textarea class="form-control" rows="3" placeholder="Type your comment here"></textarea>
+								</div>
+								<div class="text-right">
+									<button type="button" class="btn btn-primary">
+										Post comment
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 text-center">
+				<div class="date-time">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Date &amp; Time</h3>
+						</div>
+						<div class="panel-body">
+							<div class="text-center">
+								<h3>
+									5:00pm to 7:30pm<br>
+									<small>November 10th, 2013</small>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="attend-maybe">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Attending</h3>
+								</div>
+								<div class="panel-body">
+									<div class="text-center">
+										<h1>33</h1>
+										<button type="button" class="btn btn-success btn-block">
+											Attend
+										</button>
+										<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#attendListModal">
+											View list
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 range-end">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Maybe</h3>
+								</div>
+								<div class="panel-body">
+									<div class="text-center">
+										<h1>2</h1>
+										<button type="button" class="btn btn-warning btn-block">
+											Maybe
+										</button>
+										<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#maybeListModal">
+											View list
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="location">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Location</h3>
+						</div>
+						<div class="panel-body">
+							<div class="text-center">
+								<address>
+									<strong>Red Room B</strong><br>
+									Allen Library Research Commons<br>
+									Seattle, WA 98195-2900<br>
+									<abbr title="Phone">P:</abbr> (206) 543-0242
+								</address>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="map">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Map</h3>
+						</div>
+						<div class="panel-body">
+							<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=uw+library&amp;oe=utf-8&amp;client=firefox-a&amp;channel=fflb&amp;ie=UTF8&amp;hq=uw+library&amp;hnear=Seattle,+King+County,+Washington&amp;t=m&amp;fll=47.650443,-122.303839&amp;fspn=0.027175,0.025363&amp;st=110925907606993809018&amp;rq=1&amp;ev=zi&amp;split=1&amp;ll=47.657092,-122.30989&amp;spn=0.008672,0.018239&amp;z=15&amp;output=embed"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Attend List Modal -->
+<div class="modal fade" id="attendListModal" tabindex="-1" role="dialog" aria-labelledby="attendListModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="attendListModalLabel">Guests Attending</h4>
+			</div>
+			<div class="modal-body">
+				<div class="guestlist">
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb1.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Elaine Albertson</p>
+							<h6>HOSTING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb2.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Juan Garcia</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb3.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Travis Dupart</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb4.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Ethan Blake</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb5.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Tom Lincoln</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb6.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Etienne Pierson</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb2.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Juan Garcia</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb3.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Travis Dupart</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb4.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Ethan Blake</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb5.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Tom Lincoln</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb6.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Etienne Pierson</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb2.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Juan Garcia</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb3.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Travis Dupart</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb4.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Ethan Blake</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb5.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Tom Lincoln</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb6.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Etienne Pierson</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb2.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Juan Garcia</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb3.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Travis Dupart</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb4.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Ethan Blake</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb5.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Tom Lincoln</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb6.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Etienne Pierson</p>
+							<h6>ATTENDING</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Maybe List Modal -->
+<div class="modal fade" id="maybeListModal" tabindex="-1" role="dialog" aria-labelledby="maybeListModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="maybeListModalLabel">Guests Maybe</h4>
+			</div>
+			<div class="modal-body">
+				<div class="guestlist">
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb6.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Etienne Pierson</p>
+							<h6>MAYBE</h6>
+						</div>
+					</div>
+					<div class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/thumb5.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<p>Tom Lincoln</p>
+							<h6>MAYBE</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="footer">
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="footer-section">
+					<h4 class="footer-title">What?</h4>
+					<p>
+						This site is a place for students to find other students who are persuing similar goals.
+					</p>
+					<p>
+						We've been in those overcrowded lectures, where every face is anonymous. We've faced those exams, where it would be great to have peers but you don't know who to call.
+					</p>
+					<p>
+						This site is for people who want to reach out and learn together. Try a studysesh.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Core</h4>
+					<ul class="list-unstyled">
+						<li><a href="find.html">Find a session</a></li>
+						<li><a href="create.html">Create a session</a></li>
+						<li><a href="mysessions.html">My sessions</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Databank</h4>
+					<ul class="list-unstyled">
+						<li><a href="db-universities.html">Universities</a></li>
+						<li><a href="db-locations.html">Locations</a></li>
+						<li><a href="db-subjects.html">Subjects</a></li>
+						<li><a href="db-classes.html">Classes</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Community</h4>
+					<ul class="list-unstyled">
+						<li><a href="cm-mission.html">About studysesh</a></li>
+						<li><a href="cm-contact.html">Contact the team</a></li>
+						<li><a href="cm-feedback.html">Give feedback</a></li>
+						<li><a href="cm-forum.html">User forum</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Developer</h4>
+					<ul class="list-unstyled">
+						<li><a href="dv-api.html">API documentation</a></li>
+						<li><a href="dv-roadmap.html">Project roadmap</a></li>
+						<li><a href="dv-issue.html">Report issue</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="bootstrap-3.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>

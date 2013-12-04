@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<title>studysesh - Create</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/btn-twbs-2.3.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="find_unauthed.html">studysesh</a>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="main-nav-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="find.html">Find</a></li>
+			<li class="active"><a href="create.html">Create</a></li>
+			<li><a href="mysessions.html">My sessions</a></li>
+		</ul>
+		<!-- <button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button> -->
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Jane Doe <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="account.html">Account settings</a></li>
+					<li><a href="#">Sign Out</a></li>
+				</ul>
+			</li>
+		</ul>
+		<p class="navbar-text navbar-right">
+			<small>
+				<span class="label">
+					UNIVERSITY OF WASHINGTON
+				</span>
+			</small>
+			&nbsp;
+			&nbsp;
+		</p>
+	</div><!-- /.navbar-collapse -->
+</nav>
+<div class="container-custom">
+	<div class="page-header">
+		<h1>Create a study session</h1>
+	</div>
+	<div class="row">
+		<div id="session-host">
+			<div class="col-sm-12">
+				<div class="well">
+					<div class="form-group">
+						<label for="">Name</label>
+						<input type="text" class="form-control" placeholder="Title of your sesh">
+					</div>
+					<div class="form-group">
+						<label for="">Details</label>
+						<textarea class="form-control" rows="5" placeholder="Anything special we should know"></textarea>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label for="">Location</label>
+								<input type="text" class="form-control" placeholder="Name or address">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label for="">Date</label>
+								<input type="text" class="form-control" placeholder="MM/DD/YYYY">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label for="">Time</label>
+								<div class="row">
+									<div class="range-begin col-xs-6">
+										<input type="text" class="form-control" placeholder="Start">
+									</div>
+									<div class="range-end col-xs-6">
+										<input type="text" class="form-control" placeholder="End">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="">Subject</label>
+								<select class="form-control">
+									<option>Any subject</option>
+									<option>Anthropology (ANTH)</option>
+									<option>Archaeology (ARCHY)</option>
+									<option>Applied Mathematics (AMATH)</option>
+									<option>Astronomy (ASTR)</option>
+									<option>Biology (BIOL)</option>
+									<option>Center for Statistics and Social Sciences (CS&amp;SS)</option>
+									<option>Center for the Humanities (HUM)</option>
+									<option>Chemistry (CHEM)</option>
+									<option>Communication (COM)</option>
+									<option>Comparative History of Ideas (CHID)</option>
+									<option>Comparative Literature (C LIT)</option>
+									<option>Dance (DANCE)</option>
+									<option>Digital Arts and Experimental Media (DXARTS)</option>
+									<option>Disability Studies (DIS ST)</option>
+									<option>Drama (DRAMA)</option>
+									<option>Economics (ECON)</option>
+									<option>English (ENGL)</option>
+									<option>Gender, Women, and Sexuality Studies (GWSS)</option>
+									<option>General Studies (GEN ST)</option>
+									<option>Geography (GEOG)</option>
+									<option>Germanics (GERMAN)</option>
+									<option>History (HIST)</option>
+									<option>Integrated Science (INTSCI)</option>
+									<option>Law, Societies, and Justice (LSJ)</option>
+									<option>Mathematics (MATH) </option>
+									<option>Microbiology (MICROM)</option>
+									<option>Music (MUSIC)</option>
+									<option>Neurobiology (NBIO)</option>
+									<option>Philosophy (PHIL)</option>
+									<option>Physics (PHYS)</option>
+									<option>Political Science (POL S)</option>
+									<option>Psychology (PSYCH)</option>
+									<option>Social Sciences (SOCSCI)</option>
+									<option>Sociology (SOC)</option>
+									<option>Statistics (STAT)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="">Class</label>
+								<select class="form-control">
+									<option>Any class</option>
+									<option>INFO 100 Fluency in Information Technology (5) QSR</option>
+									<option>INFO 101 Social Networking Technologies (5) I&amp;S/NW</option>
+									<option>INFO 200 Intellectual Foundations of Informatics (5) I&amp;S</option>
+									<option>INFO 240 Database Management Fundamentals I (5)</option>
+									<option>INFO 245 Database Management Fundamentals II (5)</option>
+									<option>INFO 310 Information Assurance and Cybersecurity (5)</option>
+									<option>INFO 320 Information Needs, Searching, and Presentation (5)</option>
+									<option>INFO 330 Information Structures (5)</option>
+									<option>INFO 340 Database Management and Information Retrieval (5) NW</option>
+									<option>INFO 341 Computer Networks and Distributed Applications (5) NW</option>
+									<option>INFO 343 Web Technologies (5)</option>
+									<option>INFO 344 Web Tools and Development (5)</option>
+									<option>INFO 360 Design Thinking (5) I&amp;S</option>
+									<option>INFO 380 Information Systems Analysis and Management (5)</option>
+									<option>INFO 424 Information Visualization and Aesthetics (5) VLPA</option>
+									<option>INFO 430 Knowledge Organization and Representation (5)</option>
+									<option>INFO 431 Metadata Design (3)</option>
+									<option>INFO 432 Ontology Design (3)</option>
+									<option>INFO 444 Value-Sensitive Design (5)</option>
+									<option>INFO 445 Advanced Database Design, Management, and Maintenance (5)</option>
+									<option>INFO 446 Advanced Search Engine Systems (5)</option>
+									<option>INFO 447 Computer Supported Cooperative Work (5) I&amp;S</option>
+									<option>INFO 450 Information Ethics and Policy (5) I&amp;S</option>
+									<option>INFO 454 Information Policy: Domestic and Global (5) I&amp;S</option>
+									<option>INFO 461 Cooperative Software Design (5)</option>
+									<option>INFO 463 Input and Interaction (5)</option>
+									<option>INFO 470 Research Methods in Informatics (5)</option>
+									<option>INFO 481 Project Management in Informatics (4)</option>
+									<option>INFO 490 Project Capstone I (4)</option>
+									<option>INFO 491 Project Capstone II (4)</option>
+									<option>INFO 495 Internship in Informatics (1-5, max. 12)</option>
+									<option>INFO 497 Informatics Study Abroad (1-8, max. 18)</option>
+									<option>INFO 498 Special Topics in Informatics (1-5, max. 15)</option>
+									<option>INFO 499 Independent Study (1-5, max. 15)</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="text-right">
+					<button type="button" class="btn btn-default btn-lg">Cancel</button>
+					<button type="button" class="btn btn-primary btn-lg">Create session</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="footer-section">
+					<h4 class="footer-title">What?</h4>
+					<p>
+						This site is a place for students to find other students who are persuing similar goals.
+					</p>
+					<p>
+						We've been in those overcrowded lectures, where every face is anonymous. We've faced those exams, where it would be great to have peers but you don't know who to call.
+					</p>
+					<p>
+						This site is for people who want to reach out and learn together. Try a studysesh.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Core</h4>
+					<ul class="list-unstyled">
+						<li><a href="find.html">Find a session</a></li>
+						<li><a href="create.html">Create a session</a></li>
+						<li><a href="mysessions.html">My sessions</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Databank</h4>
+					<ul class="list-unstyled">
+						<li><a href="db-universities.html">Universities</a></li>
+						<li><a href="db-locations.html">Locations</a></li>
+						<li><a href="db-subjects.html">Subjects</a></li>
+						<li><a href="db-classes.html">Classes</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Community</h4>
+					<ul class="list-unstyled">
+						<li><a href="cm-mission.html">About studysesh</a></li>
+						<li><a href="cm-contact.html">Contact the team</a></li>
+						<li><a href="cm-feedback.html">Give feedback</a></li>
+						<li><a href="cm-forum.html">User forum</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Developer</h4>
+					<ul class="list-unstyled">
+						<li><a href="dv-api.html">API documentation</a></li>
+						<li><a href="dv-roadmap.html">Project roadmap</a></li>
+						<li><a href="dv-issue.html">Report issue</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="bootstrap-3.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>

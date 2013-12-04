@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<title>studysesh - Class databank</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/btn-twbs-2.3.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="find_unauthed.html">studysesh</a>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="main-nav-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="find.html">Find</a></li>
+			<li><a href="create.html">Create</a></li>
+			<li><a href="mysessions.html">My sessions</a></li>
+		</ul>
+		<!--
+		<div class="navbar-right">
+			<button type="button" class="btn btn-primary navbar-btn">Sign in</button>
+			<button type="button" class="btn btn-info navbar-btn">Sign up</button>
+		</div>
+		-->
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Jane Doe <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="account.html">Account settings</a></li>
+					<li><a href="#">Sign Out</a></li>
+				</ul>
+			</li>
+		</ul>
+		<p class="navbar-text navbar-right">
+			<small>
+				<span class="label">
+					UNIVERSITY OF WASHINGTON
+				</span>
+			</small>
+			&nbsp;
+			&nbsp;
+		</p>
+	</div><!-- /.navbar-collapse -->
+</nav>
+<div class="container-custom">
+	<div class="page-header">
+		<h1>
+			Class databank
+			<small>&nbsp;</small>
+			<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#newEntryModal">
+				Request new entry
+			</button>
+		</h1>
+	</div>
+	<p><em>This page lists all of the major &amp; minor academic subjects currently loaded into the studysesh system for your institution. If you have any additions, modifications, or deletions that you believe are appropriate, please use the buttons to make a request directly to the studysesh system administrators.</em></p>
+	<div class="databank-search">
+		<div class="input-group">
+			<input type="text" class="form-control input-sm" placeholder="Enter terms to search this databank">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Search</button>
+			</span>
+		</div>
+	</div>
+	<div class="databank-entries">
+		<div class="header hidden-xs">
+			<div class="row">
+				<div class="col-sm-1">
+					<h4>Subj</h4>
+				</div>
+				<div class="col-sm-1">
+					<h4>Num</h4>
+				</div>
+				<div class="col-sm-4">
+					<h4>Name</h4>
+				</div>
+				<div class="col-sm-3">
+					<h4>Website</h4>
+				</div>
+				<div class="col-sm-3">
+					<h4>Options</h4>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="entry">
+			<div class="row">
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							ANTH
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-1">
+					<p>
+						<strong>
+							100
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						Introduction to Anthropology
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						<a href="http://www.washington.edu/students/crscat/anthro.html#anth100">
+							http://www.washington.edu/students/crscat/anthro.html#anth100
+						</a>
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-xs-6 range-begin">
+							<button class="btn btn-xs btn-block btn-default" data-toggle="modal" data-target="#changeEntryModal">
+								Request change
+							</button>
+						</div>
+						<div class="col-xs-6 range-end">
+							<button class="btn btn-xs btn-block btn-danger" data-toggle="modal" data-target="#removeEntryModal">
+								Request removal
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="visible-xs">&nbsp;</p>
+		</div>
+		<hr>
+		<div class="text-center">
+			<ul class="pagination">
+				<li><a href="#">&laquo;</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="footer-section">
+					<h4 class="footer-title">What?</h4>
+					<p>
+						This site is a place for students to find other students who are persuing similar goals.
+					</p>
+					<p>
+						We've been in those overcrowded lectures, where every face is anonymous. We've faced those exams, where it would be great to have peers but you don't know who to call.
+					</p>
+					<p>
+						This site is for people who want to reach out and learn together. Try a studysesh.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Core</h4>
+					<ul class="list-unstyled">
+						<li><a href="find.html">Find a session</a></li>
+						<li><a href="create.html">Create a session</a></li>
+						<li><a href="mysessions.html">My sessions</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Databank</h4>
+					<ul class="list-unstyled">
+						<li><a href="db-universities.html">Universities</a></li>
+						<li><a href="db-locations.html">Locations</a></li>
+						<li><a href="db-subjects.html">Subjects</a></li>
+						<li><a href="db-classes.html">Classes</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Community</h4>
+					<ul class="list-unstyled">
+						<li><a href="cm-mission.html">About studysesh</a></li>
+						<li><a href="cm-contact.html">Contact the team</a></li>
+						<li><a href="cm-feedback.html">Give feedback</a></li>
+						<li><a href="cm-forum.html">User forum</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="footer-section">
+					<h4 class="footer-title">Developer</h4>
+					<ul class="list-unstyled">
+						<li><a href="dv-api.html">API documentation</a></li>
+						<li><a href="dv-roadmap.html">Project roadmap</a></li>
+						<li><a href="dv-issue.html">Report issue</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Request New Entry Modal -->
+<div class="modal fade" id="newEntryModal" tabindex="-1" role="dialog" aria-labelledby="newEntryModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="newEntryModalLabel">Request a new databank entry</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<div class="form-group">
+						<label for="">Reason for new entry</label>
+						<textarea class="form-control" rows="3" placeholder="Enter justification for the new entry"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="">New entry content</label>
+						<textarea class="form-control" rows="3" placeholder="Enter information for the new entry"></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Make request</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Request New Entry Modal -->
+<div class="modal fade" id="changeEntryModal" tabindex="-1" role="dialog" aria-labelledby="changeEntryModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="changeEntryModalLabel">Request a databank entry change</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<div class="form-group">
+						<label for="">Reason for entry change</label>
+						<textarea class="form-control" rows="3" placeholder="Enter justification for changing the entry"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="">Entry change content</label>
+						<textarea class="form-control" rows="3" placeholder="Enter the information changes for the entry"></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Make request</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Request New Entry Modal -->
+<div class="modal fade" id="removeEntryModal" tabindex="-1" role="dialog" aria-labelledby="removeEntryModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="removeEntryModalLabel">Request a databank entry removal</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<div class="form-group">
+						<label for="">Reason for entry removal</label>
+						<textarea class="form-control" rows="6" placeholder="Enter justification for removing the entry"></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Make request</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="bootstrap-3.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>

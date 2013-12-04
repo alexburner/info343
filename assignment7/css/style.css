@@ -1,0 +1,328 @@
+.navbar {
+	margin-bottom: 15px;
+}
+.navbar .label {
+	color: #777;
+}
+.label {
+	position: relative;
+	top: -1px;
+}
+
+
+
+.container-fluid {
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container-custom {
+	position: relative;
+	max-width: 1024px;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+#footer {
+	position: relative;
+	margin-top: 100px;
+	background: #222;
+	color: #EEE;
+}
+
+#footer .container-custom {
+	padding-top: 40px;
+	padding-bottom: 200px;
+}
+
+#footer a {
+	color: #CCC;
+}
+#footer a:hover,
+#footer a:active {
+	color: #FFF;
+}
+
+.footer-title {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	padding-left: 2px;
+	border-bottom: 1px solid #555;
+}
+
+.footer-section {
+	margin-bottom: 40px;
+}
+.footer-section li {
+	margin-bottom: 8px;
+	margin-left: 2px;
+	line-height: 1.1em;
+}
+.footer-section p {
+	color: #999;
+}
+
+
+
+#footer .tail {
+	height: 12px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 25px;
+	border-bottom: 1px solid #333;
+}
+#footer .tail .text {
+	text-align: center;
+}
+#footer .tail .text a {
+	margin: 0 6px;
+	padding: 0 2px;
+	font-size: 12px;
+	background: #222;
+	color: #777;
+}
+#footer .tail .text a:first-child {
+	padding-left: 1px;
+}
+
+
+.label-inverse {
+	background-color: #333;
+}
+
+.page-header {
+	margin-bottom: 0px;
+	border: none;
+}
+
+iframe {
+	margin-bottom: 20px;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+}
+.overlay .fog {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #FFF;
+	opacity: 0.7;
+}
+.overlay .content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#iframe {
+	position: relative;
+}
+#iframe .overlay .content {
+	text-align: center;
+}
+#iframe .overlay .content p {
+	margin-top: 110px;
+	margin-bottom: 0px;
+}
+
+
+
+.panel-heading {
+	position: relative;
+}
+.panel-heading .pull-right {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+
+.panel-footer {
+	position: relative;
+}
+.panel-footer .pull-right {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+
+
+
+.range-begin {
+	padding-right: 5px;
+}
+.range-end {
+	padding-left: 5px;
+} 
+
+
+
+
+#session-filter .relationship .panel-body {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+
+#session-list .dropdown-menu {
+	left: auto;
+	right: 0px;
+}
+
+
+#session-list .session {
+	position: relative;
+}
+#session-list .session .panel-body {
+	background: #FEFEFE;
+}
+#session-list .session > .panel > a {
+	display: block;
+	color: #333;
+}
+#session-list .session a:hover,
+#session-list .session a:active,
+#session-list .session a:hover .panel-body,
+#session-list .session a:active .panel-body {
+	color: #000;
+	background: #F4F4F4;
+}
+#session-list .session a:hover hr,
+#session-list .session a:active hr {
+	border-color: #DDD;
+}
+#session-list .session h1 {
+	position: relative;
+	top: 4px;
+	padding: 0;
+	margin: 0;
+}
+#session-list .session small {
+	margin: 0;
+	position: relative;
+	top: -4px;
+	font-size: 8px;
+}
+#session-list .session h4 {
+	margin: 0;
+}
+#session-list .session hr {
+	margin-top: 11px;
+	margin-bottom: 7px;
+}
+#session-list .session p {
+	margin: 0;
+}
+#session-list .session .date-time h4 {
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+#session-list .session .date-time {
+	position: relative;
+	/*left: -20px;*/
+}
+#session-list .session i {
+	position: absolute;
+	top: 5px;
+	right: 0px;
+	font-size: 48px;
+}
+
+#session-list .session .col-sm-3,
+#session-list .session .col-sm-7,
+#session-list .session .col-sm-1 {
+	padding: 0;
+}
+
+
+#session-detail {
+	padding-top: 20px;
+	border-top: 1px solid #EEE;
+}
+
+#session-detail h5 {
+	margin: 0 0 4px;
+}
+
+#session-detail .panel {
+	margin-bottom: 20px;
+}
+
+#session-detail .date-time h3 {
+	margin: 0;
+	line-height: 1em;
+}
+
+#session-detail .attend-maybe h1 {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+#session-detail .location address {
+	margin: 0;
+}
+
+#session-detail .name,
+#session-detail .details {
+	margin-bottom: 20px;
+}
+
+#session-detail .name h3 {
+	margin: 0 0 2px;
+	line-height: 1em;
+}
+
+#session-detail .details p {
+	margin: 0 0 4px;
+}
+
+#session-detail .comments img {
+	width: 20px;
+	height: 20px;
+}
+
+.guestlist .media p {
+	margin: 6px 0 0;
+}
+.guestlist .media h6 {
+	margin: 0;
+}
+
+#session-detail .map .panel-body {
+	padding: 0;
+}
+#session-detail .map .panel-body iframe {
+	margin: 0;
+}
+
+.databank-search {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.databank-entries {
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.databank-entries hr {
+	margin-top: 2px;
+	margin-bottom: 9px;
+}
